@@ -1,0 +1,7 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Quiz Result - {{ quiz.title }}</h1>
+  <p>Your score: {{ score }} out of {{ quiz.question_set.count }}</p>
+  <!-- You can customize the display of results based on your requirements -->
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h1>Welcome to the Home Page!</h1>
+    <p>Content Management System</p>
+    
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.first_name }}! You are logged in.</p>
+    {% else %}
+        <p>
+            <a href="{% url 'sign_in' %}">Log in if you already have an account</a> 
+            or <a href="{% url 'sign_up' %}">create one here!</a>.
+        </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+<!-- templates/course_app/topics_page.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block header %}{{ course.name }} Topics{% endblock %}
+
+{% block content %}
+    <h2>{{ course.name }} Topics</h2>
+    {% for topic in topics %}
+        <a href="{% url 'youtube_results_page' topic.id %}">{{ topic.name }}</a><br>
+        {% for quiz in topic.quiz_set.all %}
+            <a href="{% url 'quiz_display' quiz.id %}">Take Quiz</a><br>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

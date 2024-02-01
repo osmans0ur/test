@@ -1,0 +1,11 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<a href="{% url 'start_topic' %}"><button>Start topic here</button></a>
+<p></p>
+  {% for discussion in discussions %}
+    <a href="{% url 'discussion_detail' discussion.id %}">{{ discussion.title }}</a><br>
+  {% endfor %}
+  
+{% endblock %}
+a

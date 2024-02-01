@@ -1,0 +1,26 @@
+<!-- templates/course_app/quiz_display.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>{{ quiz.title }}</h1>
+  
+  <form method="post" action="{% url 'quiz_submit' quiz.id %}">
+    {% csrf_token %}
+    
+    {% for question in quiz.question_set.all %}
+      <fieldset>
+        <legend>{{ question.text }}</legend>
+        
+        {% for answer in question.answer_set.all %}
+          <label>
+            <input type="radio" name="question_{{ question.id }}" value="{{ answer.id }}">
+            {{ answer.text }}
+          </label><br>
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+    
+    <button type="submit">Submit Quiz</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+
+
+{% block title %} {{ topic.name }} - {% endblock %}
+
+{% block header %}{{ topic.name }}{% endblock %}
+
+{% block content %}
+    <h2>{{ topic.name }} videos:</h2>
+    {% for video in videos %}
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.id.videoId }}" frameborder="0" allowfullscreen></iframe><br>
+    {% endfor %}
+{% endblock %}

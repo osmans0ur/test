@@ -1,0 +1,14 @@
+<!-- course_app/templates/registration/sign_in.html -->
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    <p> <a href="{% url 'sign_up' %}">if you don't have an account create one here!</a></p>
+    <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+<!-- templates/courses_page.html -->
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    {% for course in courses %}
+        <a href="{% url 'topics_page' course.id %}">{{ course.name }}</a><br>
+    {% endfor %}
+
+    <!-- Include authentication links -->
+    
+{% endblock %}

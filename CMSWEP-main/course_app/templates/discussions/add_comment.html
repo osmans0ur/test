@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h2>Add Comment</h2>
+
+<form method="post" action="{% url 'add_comment' discussion.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Comment</button>
+</form>
+
+<a href="{% url 'discussion_detail' discussion.id %}">Back to Discussion</a>
+{% endblock %}
